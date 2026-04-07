@@ -24,10 +24,10 @@ app.post('/api/login', async(req,res) =>{
 
 
     if(usuario && usuario.contraseña  === contraseña){
-        const tocken = jwt.sign({id: usuario.id}, "Clave secreta", {expiresIn: '1h'})
+        const token = jwt.sign({id: usuario.id}, "Clave secreta", {expiresIn: '1h'})
         return res.json({
             message: "Login exitoso",
-            tocken: tocken,
+            token: token,
             usuario: {nombre: usuario.nombre}
         });
     }else{
